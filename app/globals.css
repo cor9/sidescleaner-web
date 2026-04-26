@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: theme("colors.cream.DEFAULT");
+    color: theme("colors.ink.DEFAULT");
+  }
+
+  body {
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Display headings use Fraunces italic — the Marquee signature */
+  h1.display, h2.display, h3.display, .font-display {
+    font-family: var(--font-fraunces), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: theme("colors.marquee.red");
+    color: theme("colors.cream.light");
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md font-medium text-sm transition-colors;
+  }
+  .btn-primary {
+    @apply bg-marquee-red text-cream-light hover:bg-marquee-red-deep;
+  }
+  .btn-ghost {
+    @apply text-ink hover:bg-cream-dark;
+  }
+  .input {
+    @apply w-full px-3 py-2 rounded-md bg-cream-light border border-ink/10 text-ink placeholder:text-ink-mute focus:outline-none focus:border-marquee-red focus:ring-2 focus:ring-marquee-red/20;
+  }
+  .chip {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-cream-dark text-ink-soft;
+  }
+  .chip-active {
+    @apply bg-marquee-red text-cream-light;
+  }
+  .card {
+    @apply bg-cream-light rounded-lg border border-ink/5 shadow-soft hover:shadow-lift transition-shadow;
+  }
+}
